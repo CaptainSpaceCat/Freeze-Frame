@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -261,7 +261,7 @@ public class TimeController : MonoBehaviour
 	// ================= MAJOR TODO =================
 	// handle destruction of Freezables gracefully
 	// if one is instantiated at time 10, destroy it if we go earlier
-	// if one is destroyed at time 20, instantiate it if wo go earlier
+	// if one is destroyed at time 20, instantiate it if we go earlier
 	// and vice versa
 	// this is ONLY relevant for freezable objects that are either instantiated or destroyed after the start of the level
 	// no such objects exist in the game currently
@@ -271,7 +271,7 @@ public class TimeController : MonoBehaviour
 
 
 	// ===================================== SFX ===================================== //
-	//should probably break this out to an SFXController or somn
+	//should probably break this out to an SFXController or something if more SFX related functionality is ever needed
 	private void setTimeSFX(bool transition, int direction) {
 		if (timeDirection == direction) {
 			return;
@@ -282,7 +282,6 @@ public class TimeController : MonoBehaviour
 		 * -1 - backward
 		 * 2 - stop
 		 */
-		//TODO make this an enum -_-
 
 		musicController.setDirection(direction);
 		if (direction == 0) {
@@ -335,15 +334,6 @@ public class TimeController : MonoBehaviour
     	} else if (mode == eShaderMode.Reverse) {
     		speckleShader.setSpeedVal(-1f);
     	}
-    }
-
-    // handle changes to the shader that glitches the camera
-    // DEPRECATED
-    private void setCameraGlitch(Vector4 parameters) {
-    	cameraGlitch.scanLineJitter = parameters.x;
-    	cameraGlitch.verticalJump = parameters.y;
-    	cameraGlitch.horizontalShake = parameters.z;
-    	cameraGlitch.colorDrift = parameters.w;
     }
 
 }
